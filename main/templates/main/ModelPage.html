@@ -1,0 +1,31 @@
+{% extends 'main\Base.html' %}
+
+{% block title %} Model {% endblock %}
+
+{% block content %} 
+<div class="content model">
+    <h1>Parser</h1>
+    <p>-</p>
+
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="number" name="Count">
+        <button type="submit">Обработать</button>
+    </form> 
+
+    <!-- {% if v %}
+        {% for el in answer %}
+            {% for name, value in el.items %}
+                <p>{{name}}: {{value}}</p>
+            {% endfor %}
+            <br>
+        {% endfor %}
+    {% endif %} -->
+
+    {% for el in answer %}
+            <p>name: '{{el.name}}'; price: {{el.price_y_dis}}</p><br>
+    {% endfor %}
+
+</div>
+{% endblock %}
